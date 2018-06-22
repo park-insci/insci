@@ -1,0 +1,42 @@
+
+{% extends 'index.html' %}
+{% load static %}
+{% block application %}
+
+    <div style="clear: both"></div>
+    <!--<div class="articles">-->
+
+    {% for article in articles %}
+        <div class="container">
+            <div class="collapse-card">
+                <div class="collapse-card__heading">
+                    <div class="collapse-card__title">
+                        {% if article.category.name == 'Наука' %}
+                            <i class="fa fas fa-file-alt fa-2x fa-fw"></i>
+                        {% endif %}
+                        {% if article.category.name == 'Личности' %}
+                            <i class="fa fas fa-users fa-2x fa-fw"></i>
+                        {% endif %}
+                        {% if article.category.name == 'Проекты' %}
+                            <i class="fa fas fa-rocket fa-2x fa-fw"></i>
+                        {% endif %}
+
+                        {{ article.name }}
+                    </div>
+                </div>
+                <div class="collapse-card__body">
+                    <img src="{{ article.image.url }}" alt="article.name" class="img" >
+                    {{ article.description }}
+                </div>
+            </div>
+        </div>
+
+
+
+    {% endfor %}
+    </div>
+    <div style="clear: both"></div>
+
+
+
+{% endblock %}

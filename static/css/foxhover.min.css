@@ -1,0 +1,93 @@
+.effect{position:relative;width:325px;height:200px;overflow: hidden}
+.effect a{text-decoration:none!important}
+.effect img{min-width:100%;width:auto;height:100%}
+.effect .caption{
+    position:absolute;
+    top:0;
+    left:0;
+    background:rgba(0,0,0,0.8);
+    width:100%;
+    height:100%;
+    color:#fff;
+    text-align:center;
+    font-family:'Open Sans',sans-serif;
+    display:flex;
+    display:-webkit-flex;
+    flex-direction:column;
+    -webkit-flex-direction:column;
+    align-items:center;
+    -webkit-align-items:center;
+    justify-content:space-between;
+    -webkit-justify-content:space-between;
+    z-index:2
+}
+.effect .caption h4{
+    font-family:'Montserrat', sans-serif;
+    margin:0;
+    font-size:14px;
+    font-weight:600;
+    text-transform:uppercase;
+    padding:20px;
+    position:relative
+}
+.effect .caption h4:before,.effect .caption h4:after{
+    content:"";
+    display:block;
+    height:2px;
+    position:absolute;
+    left:0;
+    right:0;
+    margin:auto;
+    background-color:#fff
+}
+.effect .caption h4:before{
+    width:40px;
+    bottom:10px
+}
+.effect .caption h4:after{
+    width:20px;
+    bottom:5px
+}
+.effect .caption .text{
+    margin:0;
+    padding:0 10px;
+    font-size:14px;
+    line-height:22px;
+    position:relative
+}
+.effect .caption .text p{
+    margin-bottom:15px;
+    margin-top:0
+}
+.effect .caption .text p:last-child{
+    margin-bottom:0
+}
+.effect .caption a.btn{
+    color:#fff;
+    display:inline-block;
+    border:2px solid #fff;
+    border-radius:6px;
+    font-size:12px;
+    padding:5px 10px 6px;
+    background-color:transparent;
+    transition:background .2s linear 0;
+    margin-bottom:20px;
+    position:relative
+}
+.effect .caption a.btn:hover{
+    background-color:#fff;
+    color:#000
+}
+.effect.eff-1 .caption{
+    top:-100%;
+    -moz-transition:top .2s linear 0;
+    -webkit-transition:top .2s linear 0;
+    transition:top .2s linear 0
+}
+.effect.eff-1:hover .caption{top:0}
+
+
+.effect.eff-15 .caption{-moz-transform:scale(0,1);-webkit-transform:scale(0,1);transform:scale(0,1);-moz-transform-origin:left top;-webkit-transform-origin:left top;transform-origin:left top}.effect.eff-15:hover .caption{-moz-transform:scale(1,1);-webkit-transform:scale(1,1);transform:scale(1,1);-moz-transition:all .3s linear 0;-webkit-transition:all .3s linear 0;transition:all .3s linear 0}
+
+
+

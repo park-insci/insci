@@ -1,0 +1,52 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    /*background-image: url(../images/trianglify.svg);
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-size: 100%;*/
+
+}
+
+.Site{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+header {
+    height: 60px;
+    padding: 17px 0 22px 0;
+    /*background-color: #eeedec;*/
+    margin-bottom: 20px;
+}
+
+header .logo {
+    width: 227px;
+    height: 61px;
+    margin: 0 auto;
+    display: block;
+}
+
+
+footer {
+    height: 35px;
+    line-height: 36px;
+    background-color: #5a5a5a;
+    text-align: center;
+    text-transform: uppercase;
+    color: #aeaeae;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+
+}
+
+
+
+.container {
+            width: 50rem;
+            margin: 0 auto;
+            /*margin-right: auto;
+            margin-left: auto;
+            padding: 2rem;*/
+        }

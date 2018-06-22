@@ -1,0 +1,62 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block html_title %}Город в науке{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/foxhover.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/paper-collapse.min.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src={% static 'js/paper-collapse.min.js' %}></script>
+
+</head>
+<body class="Site">
+    {% include "header.html" %}
+    {% for category in categories %}
+        <a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+    {% endfor %}
+    {% block application %}
+
+        <div style="clear: both"></div>
+    <!--<div class="articles">-->
+
+        {% for article in articles %}
+            <div class="container">
+                <div class="collapse-card">
+                    <div class="collapse-card__heading">
+                        <div class="collapse-card__title">
+                            {% if article.category.name == 'Наука' %}
+                                <i class="fa fas fa-file-alt fa-2x fa-fw"></i>
+                            {% endif %}
+                            {% if article.category.name == 'Личности' %}
+                                <i class="fa fas fa-users fa-2x fa-fw"></i>
+                            {% endif %}
+                            {% if article.category.name == 'Проекты' %}
+                                <i class="fa fas fa-rocket fa-2x fa-fw"></i>
+                            {% endif %}
+
+                            {{ article.name }}
+                        </div>
+                    </div>
+                    <div class="collapse-card__body">
+                        {{ article.description }}
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+        </div>
+        <div style="clear: both"></div>
+
+    {% endblock %}
+    {% include "footer.html" %}
+<script>
+     $(".collapse-card").paperCollapse();
+
+</script>
+</body>
+</html>
+
