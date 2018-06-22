@@ -5,58 +5,96 @@
     <title>{% block html_title %}Город в науке{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pen.css' %}">
     <link rel="stylesheet" href="{% static 'css/foxhover.min.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/paper-collapse.min.css' %}">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+          integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="module"></script>
     <script type="text/javascript" src={% static 'js/paper-collapse.min.js' %}></script>
-
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
 </head>
-<body class="Site">
-    {% include "header.html" %}
-    {% for category in categories %}
-        <a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
-    {% endfor %}
-    {% block application %}
+{% include "header.html" %}
+<body>
 
-        <div style="clear: both"></div>
-    <!--<div class="articles">-->
 
-        {% for article in articles %}
-            <div class="container">
-                <div class="collapse-card">
-                    <div class="collapse-card__heading">
-                        <div class="collapse-card__title">
-                            {% if article.category.name == 'Наука' %}
-                                <i class="fa fas fa-file-alt fa-2x fa-fw"></i>
-                            {% endif %}
-                            {% if article.category.name == 'Личности' %}
-                                <i class="fa fas fa-users fa-2x fa-fw"></i>
-                            {% endif %}
-                            {% if article.category.name == 'Проекты' %}
-                                <i class="fa fas fa-rocket fa-2x fa-fw"></i>
-                            {% endif %}
 
-                            {{ article.name }}
+    <nav>
+
+        <ul>{% for category in categories %}
+            <a href="{{ category.get_absolute_url }}">
+                <li>
+                    {{ category.name }}
+                </li>
+            </a>
+        {% endfor %}
+        </ul>
+
+    </nav>
+
+
+<div class="openNav">
+    <div class="icon">
+
+    </div>
+</div>
+<div class="wrapper">
+    <section>
+
+        {% block application %}
+
+            <div style="clear: both"></div>
+            <div class="articles">
+
+                {% for article in articles %}
+                    <div class="container">
+                        <div class="collapse-card">
+                            <div class="collapse-card__heading">
+                                <div class="collapse-card__title">
+                                    {% if article.category.name == 'Наука' %}
+                                        <i class="fa fas fa-file-alt fa-2x fa-fw"></i>
+                                    {% endif %}
+                                    {% if article.category.name == 'Личности' %}
+                                        <i class="fa fas fa-users fa-2x fa-fw"></i>
+                                    {% endif %}
+                                    {% if article.category.name == 'Проекты' %}
+                                        <i class="fa fas fa-rocket fa-2x fa-fw"></i>
+                                    {% endif %}
+
+                                    {{ article.name }}
+                                </div>
+                            </div>
+                            <div class="collapse-card__body">
+                                {{ article.description }}
+                            </div>
                         </div>
                     </div>
-                    <div class="collapse-card__body">
-                        {{ article.description }}
-                    </div>
-                </div>
+
+                {% endfor %}
             </div>
+            <div style="clear: both"></div>
 
-        {% endfor %}
-        </div>
-        <div style="clear: both"></div>
 
-    {% endblock %}
-    {% include "footer.html" %}
+
+        {% endblock %}
+
+    </section>
+</div>
+
 <script>
-     $(".collapse-card").paperCollapse();
+    $(".collapse-card").paperCollapse();
 
 </script>
+<script>$(".openNav").click(function () {
+    $("body").toggleClass("navOpen");
+    $("nav").toggleClass("open");
+    $(".wrapper").toggleClass("open");
+    $(this).toggleClass("open");
+});</script>
+
 </body>
+{% include "footer.html" %}
 </html>
 

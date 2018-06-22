@@ -8,15 +8,11 @@ html, body {
 
 }
 
-.Site{
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-}
+
 header {
     height: 60px;
     padding: 17px 0 22px 0;
-    /*background-color: #eeedec;*/
+    background-color: #aeaeae;
     margin-bottom: 20px;
 }
 
@@ -40,7 +36,6 @@ footer {
     font-size: 14px;
 
 }
-
 
 
 .container {
