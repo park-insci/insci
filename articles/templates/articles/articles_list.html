@@ -1,41 +1,56 @@
-
 {% extends 'index.html' %}
 {% load static %}
 {% block application %}
 
-    <div style="clear: both"></div>
-    <!--<div class="articles">-->
+    <div class="b-nav">
+        {% for category in categories %}
+            <li><a class="b-link" href="{{ category.get_absolute_url }}" target="_blank">{{ category.name }}</a></li>
+        {% endfor %}
+    </div>
 
-    {% for article in articles %}
-        <div class="container">
-            <div class="collapse-card">
-                <div class="collapse-card__heading">
-                    <div class="collapse-card__title">
-                        {% if article.category.name == 'Наука' %}
-                            <i class="fa fas fa-file-alt fa-2x fa-fw"></i>
-                        {% endif %}
-                        {% if article.category.name == 'Личности' %}
-                            <i class="fa fas fa-users fa-2x fa-fw"></i>
-                        {% endif %}
-                        {% if article.category.name == 'Проекты' %}
-                            <i class="fa fas fa-rocket fa-2x fa-fw"></i>
-                        {% endif %}
-
-                        {{ article.name }}
-                    </div>
-                </div>
-                <div class="collapse-card__body">
-                    <img src="{{ article.image.url }}" alt="article.name" class="img" >
-                    {{ article.description }}
-                </div>
-            </div>
+    <!-- Burger-Icon -->
+    <div class="b-container">
+        <div class="b-menu">
+            <div class="b-bun b-bun--top"></div>
+            <div class="b-bun b-bun--mid"></div>
+            <div class="b-bun b-bun--bottom"></div>
         </div>
 
-
-
-    {% endfor %}
+        <!-- Burger-Brand -->
+        <a href="/" class="b-brand">Город в науке</a>
     </div>
-    <div style="clear: both"></div>
+
+
+        <div style="clear: both"></div>
+        <div class="articles">
+
+            {% for article in articles %}
+                <div class="container">
+                    <div class="collapse-card">
+                        <div class="collapse-card__heading">
+                            <div class="collapse-card__title">
+                                {% if article.category.name == 'Наука' %}
+                                    <i class="fa fas fa-file-alt fa-2x fa-fw"></i>
+                                {% endif %}
+                                {% if article.category.name == 'Личности' %}
+                                    <i class="fa fas fa-users fa-2x fa-fw"></i>
+                                {% endif %}
+                                {% if article.category.name == 'Проекты' %}
+                                    <i class="fa fas fa-rocket fa-2x fa-fw"></i>
+                                {% endif %}
+
+                                {{ article.name }}
+                            </div>
+                        </div>
+                        <div class="collapse-card__body">
+                            {{ article.description }}
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
+        <div style="clear: both"></div>
 
 
 

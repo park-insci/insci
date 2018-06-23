@@ -4,6 +4,23 @@
     {{ category.name }}
 {% endblock %}
 {% block application %}
+    <div class="b-nav">
+        {% for category in categories %}
+            <li><a class="b-link" href="{{ category.get_absolute_url }}" target="_blank">{{ category.name }}</a></li>
+        {% endfor %}
+    </div>
+
+    <!-- Burger-Icon -->
+    <div class="b-container">
+        <div class="b-menu">
+            <div class="b-bun b-bun--top"></div>
+            <div class="b-bun b-bun--mid"></div>
+            <div class="b-bun b-bun--bottom"></div>
+        </div>
+
+        <!-- Burger-Brand -->
+        <a href="/" class="b-brand">Город в науке</a>
+    </div>
     <div style="clear: both"></div>
     {% for article in articles_from_category %}
 

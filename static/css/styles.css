@@ -1,26 +1,28 @@
 html, body {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
+
     /*background-image: url(../images/trianglify.svg);
     background-repeat:no-repeat;
     background-attachment:fixed;
     background-size: 100%;*/
 
 }
-
+A {
+    text-decoration: none;
+   }
 
 header {
     height: 60px;
     padding: 17px 0 22px 0;
-    background-color: #aeaeae;
+
     margin-bottom: 20px;
 }
 
 header .logo {
-    width: 227px;
-    height: 61px;
+    display: table;
     margin: 0 auto;
-    display: block;
+
 }
 
 
@@ -39,8 +41,9 @@ footer {
 
 
 .container {
-            width: 50rem;
+            width: 40rem;
             margin: 0 auto;
+
             /*margin-right: auto;
             margin-left: auto;
             padding: 2rem;*/

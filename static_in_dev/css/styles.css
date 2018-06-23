@@ -1,7 +1,7 @@
 html, body {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
-    height: 100%;
+
     /*background-image: url(../images/trianglify.svg);
     background-repeat:no-repeat;
     background-attachment:fixed;
@@ -9,7 +9,7 @@ html, body {
 
 }
 A {
-    text-decoration: none; /* Убирает подчеркивание для ссылок */
+    text-decoration: none;
    }
 
 header {
@@ -41,7 +41,7 @@ footer {
 
 
 .container {
-            width: 50rem;
+            width: 40rem;
             margin: 0 auto;
 
             /*margin-right: auto;

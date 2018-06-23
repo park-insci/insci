@@ -26,6 +26,12 @@ class CategoryListView(ListView):
         return context
 
 
+def article_list(request):
+    articles = Article.objects.all()
+    categories = Category.objects.all()
+    return render(request, 'articles/articles_list.html', {'articles': articles, 'categories': categories})
+
+
 class CategoryDetailView(DetailView):
 
     model = Category
